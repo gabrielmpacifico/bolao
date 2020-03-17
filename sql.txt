@@ -1,0 +1,39 @@
+CREATE DATABASE `bolao` 
+/*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ 
+/*!80016 DEFAULT ENCRYPTION='N' */;
+
+CREATE TABLE `admin` (
+  `idadmin` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(45) NOT NULL,
+  `senha` varchar(45) NOT NULL,
+  PRIMARY KEY (`idadmin`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `users` (
+  `idusers` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `pontos` int(11) NOT NULL,
+  PRIMARY KEY (`idusers`)
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `partida` (
+  `idpartida` int(11) NOT NULL AUTO_INCREMENT,
+  `timemandante` varchar(45) DEFAULT NULL,
+  `mandante` int(11) DEFAULT NULL,
+  `visitante` int(11) DEFAULT NULL,
+  `timevisitante` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idpartida`)
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `aposta` (
+  `idaposta` int(11) NOT NULL AUTO_INCREMENT,
+  `idpartida` int(11) NOT NULL,
+  `idusers` int(11) DEFAULT NULL,
+  `mandante` int(11) NOT NULL,
+  `visitante` int(11) NOT NULL,
+  `pontosporjogo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idaposta`),
+  KEY `usersnome_idx` (`idpartida`),
+  KEY `idusers_idx` (`idusers`),
+  CONSTRAINT `idpartida` FOREIGN KEY (`idpartida`) REFERENCES `partida` (`idpartida`)
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

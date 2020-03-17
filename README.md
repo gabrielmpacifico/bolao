@@ -1,0 +1,1 @@
+Site para cadastrar e pontuar os participantes de um bolão, feito de maneira simples onde apenas o criador do bolão precisa fazer login para realizar o cadastro dos participantes e a adição dos resultados da competição. (algumas alterações ainda precisam ser feitas diretamente no banco de dados.)
