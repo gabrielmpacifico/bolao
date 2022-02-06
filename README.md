@@ -2,10 +2,14 @@ Site para cadastrar e pontuar os participantes de um bolão, feito de maneira si
 
 No arquivo sql.txt, está o código para criação do banco de dados.
 
-É necessário inserir na tabela partidas as linhas referentes a cada partida da competição ao qual o bolão está sendo feito, por exemplo, se a competição tiver 48 partidas será necessário inserir 48 linhas numeradas de 1 a 48 na coluna idpartida e o nome do time mandante e do time visitante nas suas respectivas colunas.
-
-É necessário também adicionar na tabela admin uma linha com um usuario e uma senha(no formato sha1(md5)) que deve ser usado para fazer alterações no banco de dados pelo site, no site clique em regras e depois em login.
+É necessário adicionar na tabela admin uma linha com um usuario e uma senha que deve ser usado para fazer alterações no banco de dados pelo site, no site clique em regras e depois em login (a senha deve estar no formato SHA1, podendo ser criptografada no site http://www.sha1-online.com/).
 
 No arquivo conn.php deve ser colocado o nome do servidor, o usuário e a senha.
 
 A pontuação do bolão é calculada pelo arquivo attpontos.php, após fazer login e adicionar todos os participantes, sempre que uma partida da competição for finalizada deve-se adicionar o resultado desta partida clicando em <b>adicionar times e placares oficiais -> adicionar/alterar placar</b>, após isso é necessário clicar em atualizar pontos, para que seja feita a alteração no banco de dados de todos os pontos levando em consideração o resultado da partida.
+
+Próxima atualização:
+Retirar apostas exatas da tela de partidas e colocar o botão, Estatisticas das apostas nesta partida.
+Na tela de estatisticas de partida, colocar quantos pontos essa partida gerou no total para os apostadores e quantos apostadores acertaram o placar exato com o nome de cada apostador
+
+colocar um LIKE na consulta do pesquisar.php, para trazer a lista de participantes de acordo com o nome pesquisado, caso não encontre um participante com o nome exato pesquisado

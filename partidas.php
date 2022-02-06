@@ -9,9 +9,6 @@ echo '</div>' ;
 $sql = "SELECT * FROM bolao.partida;";
 $stmt = $conn->prepare($sql);$stmt->execute();
 
-$sql = "SELECT * FROM bolao.aposta;";
-$stmt2 = $conn->prepare($sql);$stmt2->execute();
-
 while($row = $stmt->fetch(PDO::FETCH_OBJ)){
     echo '</div>';
     echo '<div class="nome">';
@@ -22,11 +19,12 @@ while($row = $stmt->fetch(PDO::FETCH_OBJ)){
     <td align="right" style="width:40%;"><h1>'.$row->timevisitante.'</h1></td>
     </tr></table>';
     $count = 0;
-    while($row2 = $stmt2->fetch(PDO::FETCH_OBJ)){
-        if($row2->pontosporjogo == 10 && $row->idpartida == $row2->idpartida){
-            $count = $count + 1;
-        }
-    }
+
+    $sql = "SELECT COUNT(pontosporjogo) as exatas from bolao.aposta where pontosporjogo = 10 and idpartida = '$row->idpartida';";
+    $stmt2 = $conn->prepare($sql);$stmt2->execute();
+    $row2 = $stmt2->fetch(PDO::FETCH_OBJ);
+    $count = $row2->exatas;
+    
     echo '<h5 align="right">Apostas exatas: '.$count.'</h5>';
     echo '</div>';
 };

@@ -10,7 +10,7 @@ if(empty($_POST['usuario']) || empty($_POST['senha'])) {
 $usuario = $_POST['usuario'];
 $senha = $_POST['senha'];
 
-$senhacrip = sha1(md5($senha));
+$senhacrip = sha1($senha);
 
 $sql = "SELECT usuario FROM bolao.admin WHERE usuario = :usuario AND BINARY senha = :senhacrip";
 $stmt = $conn->prepare($sql);
@@ -33,5 +33,3 @@ $_SESSION['logged_in'] = true;
 header('Location: panel.php');
 
 ?>
-
-
