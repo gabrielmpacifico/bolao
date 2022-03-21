@@ -11,6 +11,8 @@ include 'menu.html';
     <hr>
     <a href="#" onclick="login()">LogIn</a>
     <hr>
+    <span style="margin-left: 15px;">V2.3 - GabrielMP</span>
+    <hr>
     <?php if (isset($_SESSION['usuario_existe'])): ?>
     Nome de participante já cadastrado.<br>Clique aqui para voltar todos os placares inseridos e mudar o nome.
     <?php endif; unset($_SESSION['usuario_existe']); ?>
@@ -45,6 +47,7 @@ include 'menu.html';
         <?php if (isLoggedIn()): ?>
         <h1>Olá,<a href="panel.php">Painel</a> | <a href="logout.php">Sair</a></h1>
         <?php else: ?>
+        Área exclusiva para o(a) administrador(a) do Bolão
         <form method="POST" action="login.php">
         <input type="text" name="usuario">
         <input type="password" name="senha">

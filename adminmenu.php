@@ -7,6 +7,8 @@
   <hr>
   <a href="addoficiais.php">Adicionar times e placar oficiais</a>
   <hr>
+  <a href="autoaposta.php">Auto Aposta</a>
+  <hr>
   <a href="attpontos.php">Atualizar pontos</a>
   <hr>
   <a href="logout.php">Sair</a>
@@ -15,6 +17,19 @@
   <?php if (isset($_SESSION['usuario_existe'])): ?>
   <a href="javascript:history.go(-1)" style="font-size:20px;color:red;">Nome de participante já cadastrado.<br>Clique aqui para voltar todos os placares inseridos e mudar o nome.</a>
   <?php endif; unset($_SESSION['usuario_existe']); ?>
+
+  <?php if (isset($_SESSION['erroexc'])): ?>
+  <a href="#" style="font-size:20px;color:red;">Já existe aposta cadastrada para esta partida, portanto, ela não pode ser excluida.</a>
+  <?php endif; unset($_SESSION['erroexc']); ?>
+
+  <?php if (isset($_SESSION['sucesso'])): ?>
+  <a href="#" style="font-size:20px;color:blue;">Adição, Alteração ou Exclusão, realizada com sucesso.</a>
+  <?php endif; unset($_SESSION['sucesso']); ?>
+
+  <?php if (isset($_SESSION['pontos'])): ?>
+  <a href="#" style="font-size:20px;color:blue;">Os pontos das apostas foram atualizados com sucesso.</a>
+  <?php endif; unset($_SESSION['pontos']); ?>
+
 </div>
 <style>
 hr{

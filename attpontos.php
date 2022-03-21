@@ -55,6 +55,6 @@ while($row = $stmt->fetch(PDO::FETCH_OBJ)){
     $stmt2->bindParam(':idusers', $row->idusers);$stmt2->execute();
 }
 
-
+$_SESSION['pontos'] = true;
 header('Location: panel.php');
 ?>

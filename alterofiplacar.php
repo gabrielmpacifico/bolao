@@ -13,5 +13,6 @@ $stmt->bindParam(':novomandante', $novomandante);
 $stmt->bindParam(':idpartida', $idpartida);
 $stmt->execute();
 
+$_SESSION['sucesso'] = true;
 header('Location: addoficiais.php');
 ?>

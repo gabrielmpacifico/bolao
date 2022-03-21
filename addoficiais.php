@@ -26,10 +26,10 @@ include "adminmenu.php";
                 </tr>
                 <tr>
                     <td align="center">
-                    <input type="text" style="width: 20%; height:100%" name="idpartida">
+                    <input type="number" style="width: 20%; height:100%" name="idpartida" required>
                     </td>
-                    <td align="center"><input style="width: 90%" type="text" name="timemandante"></td>
-                    <td align="center"><input style="width: 90%" type="text" name="timevisitante"></td>
+                    <td align="center"><input style="width: 90%" type="text" name="timemandante" required></td>
+                    <td align="center"><input style="width: 90%" type="text" name="timevisitante" required></td>
                 </tr>
             </table>
             <table align="center">
@@ -51,6 +51,20 @@ include "adminmenu.php";
                 $counter = $counter - 1;
             }
         ?>
+        </table>
+
+        <div class="aviso" align="center">Abaixo é possível excluir uma partida. <br>(só é permitido excluir caso não tenha tido nenhuma aposta adicionada para a mesma)</div>
+        <table align="center">
+            <tr>
+                <td align="center">Digite o número da partida</td>
+                <td align="center">Confirmar exclusão</td>
+            </tr>
+            <tr>
+                <form action="exctime.php" method="POST">
+                    <td align="center"><input style="width: 20%; height:100%" type="number" name="idpartidaexc"></td>
+                    <td align="center"><input style="width: 80%; height:100%" class="enviar" style="width: 90%" type="submit"></td>
+                </form>
+            </tr>
         </table>
 
     </div>
@@ -121,5 +135,11 @@ include "adminmenu.php";
     input.enviar{
         border-radius: 10px;
         background-color: yellow;
+    }
+    div.aviso{
+        margin-top: 30px;
+        border: yellow 3px solid;
+        color: yellow;
+        font-size: large;
     }
 </style>

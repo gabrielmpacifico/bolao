@@ -45,6 +45,20 @@ while($row = $stmt->fetch(PDO::FETCH_OBJ)){
         font-size: 40px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
     }
+    div.nome:hover{
+        animation-name: degrade;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+    }
+    @keyframes degrade{ 
+        from {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+        to {box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);}
+        from {border: 1px solid yellow;}
+        to {border: 2px solid white;}
+    }
+    a:hover { 
+        text-decoration:none;   
+    }  
     div.partdiv{
         width: 600px;
         height: 80px;

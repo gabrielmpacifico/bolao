@@ -10,17 +10,27 @@ echo '<form method="GET" action="pesquisar.php">
 if (isset($_GET['participante'])) {
     if($_GET['participante'] != ""){
         $nomepart = $_GET['participante'];
+        $nomepart = '%' . $nomepart . '%';
 
-        $sql = "SELECT pontos FROM bolao.users WHERE nome = :nomepart;";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':nomepart', $nomepart);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_OBJ);
+        $sqlcounter = "SELECT count(nome) FROM bolao.users WHERE nome like :nomepart ORDER BY nome ASC;";
+        $counter = $conn->prepare($sqlcounter);
+        $counter->bindParam(':nomepart', $nomepart);
+        $counter->execute();
+        $counter = $counter->fetchColumn();
+
         
-        if(! $row){
-            echo'<h2>Nome não registrado ou digitado de forma incorreta</h2>';;
-        }else{
-            $sql = "SELECT idusers FROM `bolao`.`users` WHERE nome = :nomepart";
+        if($counter < 1){
+            echo'<h2>Nome não registrado ou digitado de forma incorreta</h2>';        
+        }else if($counter == 1){
+
+            $sql0 = "SELECT nome,pontos FROM bolao.users WHERE nome like :nomepart ORDER BY nome ASC;";
+            $stmt = $conn->prepare($sql0);
+            $stmt->bindParam(':nomepart', $nomepart);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_OBJ);
+
+            //$nomepart = $_GET['participante'];
+            $sql = "SELECT idusers FROM `bolao`.`users` WHERE nome like :nomepart";
             $stmt0 = $conn->prepare($sql);
             $stmt0->bindParam(':nomepart', $nomepart);
             $stmt0->execute();
@@ -32,7 +42,7 @@ if (isset($_GET['participante'])) {
            $stmt2->bindParam(':idusers', $idusers);
            $stmt2->execute();
 
-            echo '<h3>'.$nomepart.'</h3>';
+            echo '<h3>'.$row->nome.'</h3>';
             echo '<h3>Pontuação: '.$row->pontos.'</h3>';
 
             while ($row2 = $stmt2->fetch(PDO::FETCH_OBJ)) {
@@ -48,6 +58,18 @@ if (isset($_GET['participante'])) {
                 echo '<h5 align="right">Pontuação na partida: '.$row2->pontosporjogo.'</h5>';
                 echo '</div>';
             }
+        }else{   
+            $sql0 = "SELECT nome,pontos FROM bolao.users WHERE nome like :nomepart ORDER BY nome ASC;";
+            $stmt = $conn->prepare($sql0);
+            $stmt->bindParam(':nomepart', $nomepart);
+            $stmt->execute();
+            echo strtoupper($_GET['participante']);
+            while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+                echo '</div>';
+                echo '<a href="pesquisar.php?participante='.$row->nome.'"> <div class="nome">';
+                echo $row->nome;
+                echo '</div> </a>';
+            }
         }
     }else{echo'<h2>Digite o nome do participante</h2>';$nomepart = " ";}
 }else{echo'<h2>Digite o nome do participante</h2>';$nomepart = " ";}
@@ -62,7 +84,7 @@ echo '</div>' ;
 <style>
     div.nome{
         width:800px;
-        height:105px;
+        height:100px;
         border: 1px solid yellow;
         margin: auto;
         color: white;
@@ -70,15 +92,28 @@ echo '</div>' ;
         color:#CCCC00;
         text-align: center;
         line-height: 100px;
-        font-size: 40px;
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+        font-size: 40px
     }
+    div.nome:hover{
+        animation-name: degrade;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+    }
+    @keyframes degrade{ 
+        from {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+        to {box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);}
+        from {border: 1px solid yellow;}
+        to {border: 2px solid white;}
+    }
+    a:hover { 
+        text-decoration:none;   
+    }    
     form{
         margin-top: 15px;
     }
     div.partdiv{
         width: 400px;
-        height: 135px;
+        height: 185px;
         text-align: center;
         color:#CCCC00;
         margin: auto;

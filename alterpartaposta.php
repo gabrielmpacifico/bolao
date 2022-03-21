@@ -27,5 +27,6 @@ $stmt->bindParam(':idpartida', $idpartida);
 $stmt->bindParam(':idusuario', $idusuario);
 $stmt->execute();
 
+$_SESSION['sucesso'] = true;
 header('Location: alterpart.php');
 ?>

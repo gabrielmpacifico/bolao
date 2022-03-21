@@ -43,6 +43,7 @@ while($stmt->fetch(PDO::FETCH_OBJ)){
 
     $cont = $cont + 1;
 }
+$_SESSION['sucesso'] = true;
 header('Location: addpart.php');
 
 ?>
