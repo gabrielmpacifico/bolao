@@ -4,7 +4,7 @@ include 'conn.php';
 include 'verificarlogin.php';
 
 
-$sql = "SELECT aposta.idpartida,aposta.idusers,aposta.mandante as am,aposta.visitante as av,partida.mandante as pm,partida.visitante as pv FROM bolao.aposta INNER JOIN bolao.partida ON aposta.idpartida = partida.idpartida WHERE partida.mandante IS NOT NULL;";
+$sql = "SELECT aposta.idpartida,aposta.idusers,aposta.mandante as am,aposta.visitante as av,partida.mandante as pm,partida.visitante as pv FROM bolao.aposta INNER JOIN bolao.partida ON aposta.idpartida = partida.idpartida WHERE partida.mandante IS NOT NULL AND aposta.mandante IS NOT NULL;";
 $stmt = $conn->prepare($sql);$stmt->execute();
 while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 

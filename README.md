@@ -11,12 +11,18 @@ A pontuação do bolão é calculada pelo arquivo attpontos.php, após fazer log
 Próxima atualização:
 1.Retirar apostas exatas da tela de partidas e colocar o botão, Estatisticas das apostas nesta partida.
   Na tela de estatisticas de partida, colocar quantos pontos essa partida gerou no total para os apostadores e quantos apostadores acertaram o placar exato com o nome de cada apostador
+  (Ou criar tela única com estatisticas no geral)
+  (Top-5 partidas que geraram pontos / Top-5 partidas que menos geraram pontos)
+  (Top-5 apostadores com mais placares exatos)
 
-2.colocar um LIKE na consulta do pesquisar.php, para trazer a lista de participantes de acordo com o nome pesquisado, caso não encontre um participante com o nome exato pesquisado
+3.Opção de apagar apostadores.
+  fazer e perguntar se tem certeza da exclusão, exibindo uma soma que deve ser respondida corretamente para que o processo seja concluido.
 
-3.Opção de apagar, times, partidas, e apostadores.
-  Manter uma tela somente para as exclusões e fazer e perguntar se tem certeza da exclusão, exibindo uma soma que deve ser respondida corretamente para que o processo seja concluido.
+4.Criar menu novo para adicionar apenas o nome do participante, sem apostas (avisar que esse metodo é para    utilizar o auto apostas para o próprio participante adicionar as suas apostas)
+alterar no banco a tabela de apostas para permitir valor null no mandante e visitante
+
+5.Novas telas, AUTO APOSTA dentro da sessão de REGRAS E INFO e ESTATISTICAS no MENU PRINCIPAL (index)
+
 
 BUGS VISUAIS: 
-Nome do participante se muito grande passa da DIV.
 Tela de adicionar/alterar time com bug na visualização da linha entre as colunas da tabela com os times já adicionados
