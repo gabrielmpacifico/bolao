@@ -9,6 +9,7 @@ echo '<div class="main">';
 echo '<form method="POST" action="addpartaction.php">';
 echo '<div class="nomeinput">';
 echo '<input class="nome" type="text" name="nome" placeholder="Nome do participante" required>';
+echo '<input type="hidden" name="autoaposta" value="false">';
 echo '</div>';
 echo '<table align="center" border=1 frame=void rules=rows>';
 $num = 1;
@@ -36,9 +37,6 @@ echo '<input id="enviar" class="enviar" type="submit">'; ?>
 <?php echo '</div>';
 echo '</form>';
 echo '</div>';
-
-
-
 ?>
 
 <style>

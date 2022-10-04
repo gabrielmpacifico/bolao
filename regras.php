@@ -11,6 +11,8 @@ include 'menu.html';
     <hr>
     <a href="#" onclick="login()">LogIn</a>
     <hr>
+    <a href="codigoaa.php">Auto Aposta</a>
+    <hr>
     <span style="margin-left: 15px;">V2.3 - GabrielMP</span>
     <hr>
     <?php if (isset($_SESSION['usuario_existe'])): ?>

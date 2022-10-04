@@ -9,12 +9,28 @@ include "adminmenu.php";
     <div align="center" class="aviso">
         Aqui é possível criar um link para que o participante adicione suas apostas por conta própria.<br>
         Lembre-se: Certifique-se de que todas as partidas da competição já estejam adicionadas no sistema.<br>
-        1.) Selecione o nome do participante e clique em gerar link.<br>
-        2.) Envie o link gerado para o participante.<br>
-        3.) A pessoa ao entrar no link deverá preencher suas apostas e clicar em enviar.<br>
+        1.) Adicione um novo participante já com o código de auto aposta ou gere o código para um participante já existente<br>
+        2.) Envie o código gerado para o participante.<br>
+        3.) A pessoa com o link deverá entrar em Regras, Info e Auto aposta, preencher suas apostas e clicar em enviar.<br>
         4.) Após o envio das apostas o link não funcionará mais e não será possível gerar outro link para o mesmo participante.<br>
-        (A coluna Ativo indica se o código do usuario está ativo (S) ou não (N) para ser utilizado<br>
-        um código se torna inativo (N) após o usuário enviar suas apostas)    
+        (Se a coluna ativo estiver (S) indica que o código ainda não foi utilizado, caso esteja (N) significa que o código já foi utilizado) 
+    </div>
+
+    <div id="alterarnome">
+        <form action="addpartaaform.php" method="POST">
+            <table align="center">
+                <tr>
+                    <td align="center">Adicionar novo participante<br>já com auto aposta</td>
+                    <td align="center">Adicionar</td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input type="text" name="nome">
+                    </td>
+                        <td align="center"><input class="enviar" style="width: 90%" type="submit"></td>
+                </tr>
+            </table>
+        </form>
     </div>
 
     <div id="alterarnome">

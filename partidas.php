@@ -11,6 +11,7 @@ $stmt = $conn->prepare($sql);$stmt->execute();
 
 while($row = $stmt->fetch(PDO::FETCH_OBJ)){
     echo '</div>';
+    echo '<a href="partstats.php?idpartida='.$row->idpartida.'">';
     echo '<div class="nome">';
     echo '<h5 align="left">'.$row->idpartida.'</h5>';
     echo '<table style="width: 100%;"><tr>
@@ -27,6 +28,7 @@ while($row = $stmt->fetch(PDO::FETCH_OBJ)){
     
     echo '<h5 align="right">Apostas exatas: '.$count.'</h5>';
     echo '</div>';
+    echo '</a>';
 };
 
 ?>

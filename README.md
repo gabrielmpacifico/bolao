@@ -15,14 +15,5 @@ Próxima atualização:
   (Top-5 partidas que geraram pontos / Top-5 partidas que menos geraram pontos)
   (Top-5 apostadores com mais placares exatos)
 
-3.Opção de apagar apostadores.
-  fazer e perguntar se tem certeza da exclusão, exibindo uma soma que deve ser respondida corretamente para que o processo seja concluido.
-
-4.Criar menu novo para adicionar apenas o nome do participante, sem apostas (avisar que esse metodo é para    utilizar o auto apostas para o próprio participante adicionar as suas apostas)
-alterar no banco a tabela de apostas para permitir valor null no mandante e visitante
-
-5.Novas telas, AUTO APOSTA dentro da sessão de REGRAS E INFO e ESTATISTICAS no MENU PRINCIPAL (index)
-
-
 BUGS VISUAIS: 
 Tela de adicionar/alterar time com bug na visualização da linha entre as colunas da tabela com os times já adicionados

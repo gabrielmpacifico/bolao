@@ -5,6 +5,11 @@ include 'verificarlogin.php';
 
 $id = $_POST['idusuario'];
 
+if($id == null){
+    header('Location: autoaposta.php');
+    exit();
+}
+
 $hash = rand(1111, 9999) . "-" . rand(1111, 9999) . "-" . rand(1111, 9999) . "-" . rand(1111, 9999);
 
 
